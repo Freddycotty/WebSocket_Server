@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Lobby</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <h1>Lets chat!</h1>
+    <script type="text/javascript">
+      let url = `ws://${window.location.host}/ws/socket-server/`;
+      const chatSocket = new WebSocket(url);
+
+      chatSocket.onmessage = function (e) {
+        let data = JSON.parse(e.data);
+        console.log("Data:", data);
+      };
+    </script>
+  </body>
+</html>
