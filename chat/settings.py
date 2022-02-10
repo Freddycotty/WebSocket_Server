@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--6*ycrl1%=p95rm0c-&n=roav5c+4r_+1kx^gtda(19%*9a0^5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.206.8']
 
 
 # Application definition
@@ -42,6 +42,12 @@ INSTALLED_APPS = [
 ]
 
 ASGI_APPLICATION = 'chat.asgi.application'  #ENRUTAMIENTO RAIZ
+
+CHANNEL_LAYERS = {
+  'default':{
+    'BACKEND':'channels.layers.InMemoryChannelLayer'
+  }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
